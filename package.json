@@ -14,10 +14,11 @@
   "license": "ISC",
   "devDependencies": {
     "browserify": "^13.0.0",
-    "budo": "^8.1.0",
+    "cheerio": "^0.20.0",
     "gh-pages": "^0.11.0",
     "handlebars": "^4.0.5",
     "hbsfy": "^2.5.1",
+    "tape": "^4.6.0",
     "uglifyify": "^3.0.1",
     "xhr": "^2.2.0"
   }
