@@ -1,17 +1,20 @@
-var xhr = require('xhr')
-var greeting = require('./views/greeting.hbs')
+var xhr = require('xhr');
+var greeting = require('./views/greeting.hbs');
 
-var endpoint = 'https://api.wheretheiss.at/v1/satellites'
+var endpoint = 'https://api.wheretheiss.at/v1/satellites/25544';
 
 xhr.get(endpoint, function (err, data) {
   if (err) {
-    console.error(err)
-  }
+    console.error(err);
+}
+// console.log(data.body)
+var data = JSON.parse(data.body); // FYI: data.body is a string
+var target = document.getElementsByTagName('main')[0];
+  target.innerHTML = greeting({name: data.name, id: 25544, latitude: data.latitude, longitude: data.longitude});
+});
 
-  // In case you're curious
-  console.log(data.body) // FYI: data.body is a string
-
-  // Replace 'Space' below with the response
-  var target = document.getElementsByTagName('main')[0]
-  target.innerHTML = greeting({name: 'Space'})
-})
+// document.getElementById("myBtn").addEventListener("click", displayDate);
+//
+// function displayDate() {
+//     document.getElementById("demo").innerHTML = Date();
+// }
